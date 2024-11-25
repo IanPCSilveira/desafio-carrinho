@@ -162,7 +162,9 @@ function desconto($valor, $pagamento)
 {
     if ($pagamento === 'pix') {
         return $valor * 0.9;
-    }
+    }elseif($pagamento === 'credito-a-vista'){
+        return $valor * 0.9;
+}
     return $valor;
 }
 
@@ -256,7 +258,8 @@ if (isset($_POST['comprar'])) {
                     return;
                 }
             }
-            exibir_resumo($total_sem_desconto, $pagamento);
+            $total = desconto($total_sem_desconto, $pagamento);
+            exibir_resumo($total, $pagamento);
         } elseif ($pagamento === 'credito-a-prazo') {
             $dados_obrigatorios = ['nome_cartao_prazo', 'numero_cartao_prazo', 'validade_cartao_prazo', 'cvv_cartao_prazo', 'parcelas'];
             foreach ($dados_obrigatorios as $field) {
