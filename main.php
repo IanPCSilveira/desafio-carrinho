@@ -20,7 +20,6 @@
             top: 50px;
         }
         .textboxes-info{
-            position: absolute;
             top: 40%;
             right: 12%;
         }
