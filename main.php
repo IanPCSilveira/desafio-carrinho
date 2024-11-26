@@ -7,19 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carrinho de compras - desafio</title>
     <style>
-        body{font-size: 24px; text-align: center; position: relative}
-        .botao-calcular{font-size: 32px; padding: 10px}
-        input[type="number"]{font-size: 20px; margin: 10px}
-        .info{
+        body {
+            font-size: 24px;
+            text-align: center;
+            position: relative
+        }
+
+        .botao-calcular {
+            font-size: 32px;
+            padding: 10px
+        }
+
+        input[type="number"] {
+            font-size: 20px;
+            margin: 10px
+        }
+
+        .info {
             text-align: center;
         }
+
         .resumo-compra {
             position: absolute;
             text-align: right;
             margin-right: 50px;
             top: 50px;
         }
-        .textboxes-info{
+
+        .textboxes-info {
             top: 40%;
             right: 12%;
         }
@@ -32,10 +47,10 @@
             var radioCartaoPrazo = document.getElementById("credito-prazo");
 
 
-            if (radioCartao.checked){
+            if (radioCartao.checked) {
                 secaoCartao.style.display = 'block';
                 secaoCartaoPrazo.style.display = 'none';
-            }else if (radioCartaoPrazo.checked){
+            } else if (radioCartaoPrazo.checked) {
                 secaoCartaoPrazo.style.display = 'block';
                 secaoCartao.style.display = 'none';
             } else {
@@ -46,8 +61,8 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('input[name="pagamento"]').forEach(function(radio) {
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[name="pagamento"]').forEach(function (radio) {
                 radio.addEventListener('change', mostrarFields);
             });
         });
@@ -57,16 +72,19 @@
 <h1>Loja - Selecione os produtos</h1>
 <form action="main.php" method="post">
     <div>
-        <label>Camiseta azul- R$50,00 <input type="number" name="qt_camiseta_azul"    value="0" min="0" max="32" ></label><br>
-        <label>Camiseta verde - R$55,00 <input type="number" name="qt_camiseta_verde" value="0" min="0" max="32" ></label><br>
-        <label>Calça  marrom- R$55,00 <input type="number" name="qt_camiseta_marrom"  value="0" min="0" max="32" ></label><br>
-        <label>Calça bege - R$75,00 <input type="number" name="qt_camiseta_bege"      value="0" min="0" max="32" ></label><br>
-        <label>Calça jeans - R70,00 <input type="number" name="qt_calça_jeans"        value="0" min="0" max="32" ></label><br>
-        <label>Relógio - R$325,00 <input type="number" name="qt_relogio"              value="0" min="0" max="32" ></label><br>
-        <label>Brinco- R$98,00 <input type="number" name="qt_brinco"                  value="0" min="0" max="32" ></label><br>
-        <label>Pulseira - R$30,00 <input type="number" name="qt_pulseira"             value="0" min="0" max="32" ></label><br>
-        <label>Sapato - R$230,00 <input type="number" name="qt_sapato"                value="0" min="0" max="32" ></label><br>
-        <label>Meia - R$20,00 <input type="number" name="qt_meia"                     value="0" min="0" max="32" ></label><br>
+        <label>Camiseta azul- R$50,00 <input type="number" name="qt_camiseta_azul" value="0" min="0"
+                                             max="32"></label><br>
+        <label>Camiseta verde - R$55,00 <input type="number" name="qt_camiseta_verde" value="0" min="0"
+                                               max="32"></label><br>
+        <label>Calça marrom- R$55,00 <input type="number" name="qt_camiseta_marrom" value="0" min="0"
+                                            max="32"></label><br>
+        <label>Calça bege - R$75,00 <input type="number" name="qt_camiseta_bege" value="0" min="0" max="32"></label><br>
+        <label>Calça jeans - R70,00 <input type="number" name="qt_calça_jeans" value="0" min="0" max="32"></label><br>
+        <label>Relógio - R$325,00 <input type="number" name="qt_relogio" value="0" min="0" max="32"></label><br>
+        <label>Brinco- R$98,00 <input type="number" name="qt_brinco" value="0" min="0" max="32"></label><br>
+        <label>Pulseira - R$30,00 <input type="number" name="qt_pulseira" value="0" min="0" max="32"></label><br>
+        <label>Sapato - R$230,00 <input type="number" name="qt_sapato" value="0" min="0" max="32"></label><br>
+        <label>Meia - R$20,00 <input type="number" name="qt_meia" value="0" min="0" max="32"></label><br>
     </div>
     <div class="info">
         <h3>Formas de pagamento</h3>
@@ -93,58 +111,65 @@
                     </label><br>
                 </div>
             </div>
-        <div id="cc-info-prazo" style="display: none;">
-            <h3>Informações do Cartão de Crédito (à prazo)</h3>
-            <div>
-                <label>Nome no cartão:
-                    <input type="text" name="nome_cartao_prazo">
-                </label><br>
-                <label>Número do cartão:
-                    <input type="text" name="numero_cartao_prazo">
-                </label><br>
-                <label>Validade (MM/AA):
-                    <input type="text" name="validade_cartao_prazo">
-                </label><br>
-                <label>CVV:
-                    <input type="text" name="cvv_cartao_prazo">
-                </label></br>
-                <label>Número de parcelas:
-                <select name="parcelas">
-                    <option value="2">2x</option>
-                    <option value="3">3x</option>
-                    <option value="4">4x</option>
-                    <option value="5">5x</option>
-                    <option value="6">6x</option>
-                    <option value="7">7x</option>
-                    <option value="8">8x</option>
-                    <option value="9">9x</option>
-                    <option value="10">10x</option>
-                    <option value="11">11x</option>
-                    <option value="12">12x</option>
-                </select>
-                </label><br>
+            <div id="cc-info-prazo" style="display: none;">
+                <h3>Informações do Cartão de Crédito (à prazo)</h3>
+                <div>
+                    <label>Nome no cartão:
+                        <input type="text" name="nome_cartao_prazo">
+                    </label><br>
+                    <label>Número do cartão:
+                        <input type="text" name="numero_cartao_prazo">
+                    </label><br>
+                    <label>Validade (MM/AA):
+                        <input type="text" name="validade_cartao_prazo">
+                    </label><br>
+                    <label>CVV:
+                        <input type="text" name="cvv_cartao_prazo">
+                    </label></br>
+                    <label>Número de parcelas:
+                        <select name="parcelas">
+                            <option value="2">2x</option>
+                            <option value="3">3x</option>
+                            <option value="4">4x</option>
+                            <option value="5">5x</option>
+                            <option value="6">6x</option>
+                            <option value="7">7x</option>
+                            <option value="8">8x</option>
+                            <option value="9">9x</option>
+                            <option value="10">10x</option>
+                            <option value="11">11x</option>
+                            <option value="12">12x</option>
+                        </select>
+                    </label><br>
+                </div>
             </div>
         </div>
-    </div>
-    <br>
-    <input type="submit" name="comprar" class="botao-calcular" value="Comprar">
+        <br>
+        <input type="submit" name="comprar" class="botao-calcular" value="Comprar">
 </form>
 
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-function calcular_com_juros($valor, $parcelas) {
+function calcular_com_juros($valor, $parcelas)
+{
     $juros = 0.01; // 1%
     return $valor * pow(1 + $juros, $parcelas);
 }
-function desconto($valor, $pagamento) {
+
+function desconto($valor, $pagamento)
+{
     if ($pagamento === 'pix') {
         return $valor * 0.9;
-    }
+    }elseif($pagamento === 'credito-a-vista'){
+        return $valor * 0.9;
+}
     return $valor;
 }
-function exibir_resumo($total, $pagamento, $parcelas = null) {
+
+function exibir_resumo($total, $pagamento, $parcelas = null)
+{
     echo "<div class='resumo-compra'>";
     echo "<h2>Resumo da Compra:</h2>";
 
@@ -164,7 +189,7 @@ function exibir_resumo($total, $pagamento, $parcelas = null) {
     echo "<h3>Itens:</h3>";
     foreach ($produtos as $key => $produto) {
 
-        if(isset($_POST[$key])){
+        if (isset($_POST[$key])) {
             $quantidade = intval($_POST[$key]);
         } else {
             $quantidade = 0;
@@ -190,7 +215,8 @@ function exibir_resumo($total, $pagamento, $parcelas = null) {
 }
 
 
-function preco_final() {
+function preco_final()
+{
     $produtos = [
         'qt_camiseta_azul' => 50.00,
         'qt_camiseta_verde' => 55.00,
@@ -232,7 +258,8 @@ if (isset($_POST['comprar'])) {
                     return;
                 }
             }
-            exibir_resumo($total_sem_desconto, $pagamento);
+            $total = desconto($total_sem_desconto, $pagamento);
+            exibir_resumo($total, $pagamento);
         } elseif ($pagamento === 'credito-a-prazo') {
             $dados_obrigatorios = ['nome_cartao_prazo', 'numero_cartao_prazo', 'validade_cartao_prazo', 'cvv_cartao_prazo', 'parcelas'];
             foreach ($dados_obrigatorios as $field) {
